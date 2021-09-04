@@ -57,7 +57,7 @@
             <div class="calculator-value">0</div>
             <div class="buttons-container">
                 <div class="button3 function clearScreen" onclick='onClearScreen()'>AC</div>
-                <div class="button3 function negative">+/-</div>
+                <div class="button3 function negative" onclick='onNegativeClick()'>+/-</div>
                 <div class="button3 function percent" data-value='percent' onclick='onOperationClick(this)'>%</div>
                 <div class="button3 operator division" data-value='divide' onclick='onOperationClick(this)'>&divide</div>
                 <div class="button3 number-7" data-value='7' onclick='onNumberClick(this)'>7</div>
@@ -73,7 +73,7 @@
                 <div class="button3 number-3" data-value='3' onclick='onNumberClick(this)'>3</div>
                 <div class="button3 operator addition" data-value='add' onclick='onOperationClick(this)'>+</div>
                 <div class="button3 number-0" data-value='0' onclick='onNumberClick(this)'>0</div>
-                <div class="button3 decimal">.</div>
+                <div class="button3 decimal" onclick='onDecimalClick()'>.</div>
                 <div class="button3 operator equal" data-value='equal' onclick='onOperationClick(this)'>=</div>
             </div>
         </div> 
