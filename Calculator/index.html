@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ngan JS</title>
+    <link href='css/style.css' rel='stylesheet'>
+    <link href="fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+<body>
+    <div class='homework-container'>
+        <p class='homework-title'>Bài tập 1</p>
+        <form class='homework-content'>
+            <div class='input-container'>
+                <input type='number' class='input' name='hw1-input1' id='hw1-input1'>
+                <input type='number' class='input' name='hw1-input2' id='hw1-input2'>
+            </div>
+            <div>
+                <button type='button' class='button' id='cong-btn' onclick='tinhCong()'>Cộng</button>
+                <span>=</span>
+                <div type='number' name='result' class='result' id='cong-result'></div>
+            </div>
+            <div>
+                <button type='button' class='button' id='cong-btn' onclick='tinhTru()'>Trừ</button>
+                <span>=</span>
+                <div type='number' name='result' class='result' id='tru-result'></div>
+            </div>
+            <div>
+                <button type='button' class='button' id='nhan-btn' onclick='tinhNhan()'>Nhân</button>
+                <span>=</span>
+                <div type='number' name='result' class='result' id='nhan-result'></div>
+            </div>
+            <div>
+                <button type='button' class='button' id='nhan-btn' onclick='tinhChiaNguyen()'>Chia nguyên</button>
+                <span>=</span>
+                <div type='number' name='result' class='result' id='chia-nguyen-result'></div>
+            </div>
+            <div>
+                <button type='button' class='button' id='nhan-btn' onclick='tinhChiaLayDu()'>Chia dư</button>
+                <span>=</span>
+                <div type='number' name='result' class='result' id='chia-du-result'></div>
+            </div>
+            <div>
+                <button type='button' class='button' id='nhan-btn' onclick='tinhMu()'>Mũ</button>
+                <span>=</span>
+                <div type='number' name='result' class='result' id='mu-result'></div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class='homework2-container'>
+        <p class='homework-title'>Bài tập 2</p>
+        <div class='calculator'>
+            <div class="calculator-value">0</div>
+            <div class="buttons-container">
+                <div class="button3 function clearScreen" onclick='onClearScreen()'>AC</div>
+                <div class="button3 function negative" onclick='onNegativeClick()'>+/-</div>
+                <div class="button3 function percent" data-value='percent' onclick='onOperationClick(this)'>%</div>
+                <div class="button3 operator division" data-value='divide' onclick='onOperationClick(this)'>&divide</div>
+                <div class="button3 number-7" data-value='7' onclick='onNumberClick(this)'>7</div>
+                <div class="button3 number-8" data-value='8' onclick='onNumberClick(this)'>8</div>
+                <div class="button3 number-9" data-value='9' onclick='onNumberClick(this)'>9</div>
+                <div class="button3 operator multiplication" data-value='multiply' onclick='onOperationClick(this)'>x</div>
+                <div class="button3 number-4" data-value='4' onclick='onNumberClick(this)'>4</div>
+                <div class="button3 number-5" data-value='5' onclick='onNumberClick(this)'>5</div>
+                <div class="button3 number-6" data-value='6' onclick='onNumberClick(this)'>6</div>
+                <div class="button3 operator subtraction" data-value='substract' onclick='onOperationClick(this)'>-</div>
+                <div class="button3 number-1" data-value='1' onclick='onNumberClick(this)'>1</div>
+                <div class="button3 number-2" data-value='2' onclick='onNumberClick(this)'>2</div>
+                <div class="button3 number-3" data-value='3' onclick='onNumberClick(this)'>3</div>
+                <div class="button3 operator addition" data-value='add' onclick='onOperationClick(this)'>+</div>
+                <div class="button3 number-0" data-value='0' onclick='onNumberClick(this)'>0</div>
+                <div class="button3 decimal" onclick='onDecimalClick()'>.</div>
+                <div class="button3 operator equal" data-value='equal' onclick='onOperationClick(this)'>=</div>
+            </div>
+        </div> 
+    </div>
+    <script src='js/myScript.js'></script>
+</body>
+</html>
