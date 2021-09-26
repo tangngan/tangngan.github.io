@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User | Posts</title>
+    <link href='css/style.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+
+<body>
+    <p class='page-title'>USER'S POSTS</p>
+    <div class='section'>
+        <div class='container' id='detail'></div>
+    </div>
+
+    <script>
+        "use strict";
+
+        window.onload = function () {
+            function getUserIdParam() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const userId = urlParams.get('userId');
+                return userId;
+            }
+            let file5 = `https://jsonplaceholder.typicode.com/posts?userId=${getUserIdParam()}`;
+            fetch(file5)
+                .then(x => x.json())
+                .then(data => {
+                    for (let i = 0; i < data.length; i++) {
+                        document.getElementById('detail').innerHTML += `<div class='post-details'>
+                                                                    <h1>${data[i].title} </h1>
+                                                                    <p>${data[i].body}</p>
+                                                                    <p>UserId: ${data[i].userId} </p>
+                                                                    <p>PostId: ${data[i].id}</p>
+                                                                    </div><br>`;
+                    }
+                })
+                .catch(error => console.error("Error", error));
+        }
+    </script>
+</body>
+
+</html>

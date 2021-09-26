@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts | Detail</title>
+    <link href='css/style.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+
+<body>
+    <p class='page-title'>POST DETAIL</p>
+    <div class='section'>
+        <div class='container' id='detail'></div>
+    </div>
+    <div class='section'>
+        <p class='container'>Comments</p>
+        <div class='container' id='comment'></div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            function getIdParam() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const id = urlParams.get('id');
+                return id;
+            }
+            let file3 = `https://jsonplaceholder.typicode.com/posts/${getIdParam()}`;
+            fetch(file3)
+                .then(x => x.json())
+                .then(data => {
+                    document.getElementById('detail').innerHTML = `<div class='post-details'>
+                                                                    <h1>${data.title} </h1>
+                                                                    <p>${data.body}</p>
+                                                                    <p>UserId: ${data.userId} </p>
+                                                                    <p>PostId: ${data.id}</p>
+                                                                    </div><br>`;
+                })
+                .catch(error => console.error("Error", error));
+            
+            let file4 = `https://jsonplaceholder.typicode.com/posts/${getIdParam()}/comments`;
+            fetch(file4)
+                .then(x => x.json())
+                .then(data => {
+                    for(let i=0 ; i<data.length ; i++) {
+                        document.getElementById('comment').innerHTML += `<div class='comment-details'>
+                                                                        <p><i>"${data[i].body}"</i></p> 
+                                                                        <p>UserId: ${data[i].id}</p> 
+                                                                        <p>Name: ${data[i].name}</p>
+                                                                        <p>Email: ${data[i].email}</p>
+                                                                        </div><br>`;
+                    }      
+                })
+                .catch(error => console.error("Error", error));
+        }
+    </script>
+</body>
+
+</html>

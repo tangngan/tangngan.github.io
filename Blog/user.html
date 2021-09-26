@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link href='css/style.css' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+<body>
+    <p class='page-title'>USERS</p>
+    <p class='page-subtitle'><a href='index.html'>Xem tất cả posts</a></p>
+    <div class='section'>
+        <div class='container' id='user'></div>
+    </div>
+    
+    <script>
+        "use strict";
+
+        window.onload = function () {
+            let file2 = "https://jsonplaceholder.typicode.com/users";
+            fetch(file2)
+                .then(x => x.json())
+                .then(users => {
+                    for (let i = 0; i < users.length; i++) {
+                    document.getElementById('user').innerHTML += `<div class='posts'>
+                                                      <p class='name'>${users[i].name} </p> 
+                                                      <p>Id: <b>${users[i].id}</b></p>
+                                                      <p>Username: <b>${users[i].username}</b> </p>
+                                                      <p>Email: <b>${users[i].email}</b></p>
+                                                      <p>Address: <span><b>${users[i].address.street} </span><span>${users[i].address.suite}</span><span>${users[i].address.city}</span> <span>${users[i].address.zipcode}</span></b></p>
+                                                      <p>Phone: <b>${users[i].phone}</b></p>
+                                                      <p>Website: <b>${users[i].website}</b></p>
+                                                      <p>Company name: <b>${users[i].company.name}</b></p>
+                                                      <p><a href='userposts.html?userId=${users[i].id}'>Read all posts from this user</a></p>
+                                                      </div><br>`;
+                    }
+                })
+                .catch(error => console.error("Error", error));
+        }
+    </script>
+</body>
+</html>
